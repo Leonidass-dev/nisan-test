@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="Burcu & Oğulcan Nişan — Fotoğraf ve Video Yükleme">
+  <meta name="theme-color" content="#fbf9f6">
+  <title>Burcu & Oğulcan Nişan 📸</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/upload.css">
+</head>
+<body>
+
+<!-- Animated background -->
+<div class="bg-particles" aria-hidden="true">
+  <div class="particle p1"></div>
+  <div class="particle p2"></div>
+  <div class="particle p3"></div>
+</div>
+
+<main class="upload-page" id="main">
+
+  <!-- ── Header ─────────────────────────────── -->
+  <header class="page-header upload-header">
+
+
+    <div class="masa-badge" id="masa-badge">
+      <span class="masa-icon">🪑</span>
+      <span id="masa-label">Masa <strong id="masa-num">—</strong></span>
+    </div>
+
+    <h1 class="couple-names">
+      Burcu <span class="heart-icon">♥</span> Oğulcan
+    </h1>
+
+    <p class="page-subtitle">Nişan · 13 Eylül 2026</p>
+    <p class="upload-tagline">Anınızı paylaşın, anılarımız olsun 📸</p>
+  </header>
+
+  <!-- ── Upload Card ─────────────────────────── -->
+  <section class="upload-section" id="upload-section" aria-label="Fotoğraf yükleme">
+    <div class="glass-card upload-card">
+
+      <!-- Drop Zone -->
+      <div class="drop-zone" id="drop-zone" role="button" tabindex="0"
+           aria-label="Fotoğraf veya video seçmek için tıklayın veya buraya sürükleyin">
+        <input type="file" id="file-input" accept="image/*,video/*" multiple
+               aria-label="Dosya seç" style="display:none">
+
+        <div class="drop-zone-icon" aria-hidden="true">
+          <div class="camera-wrapper">
+            <svg class="camera-svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+              <path d="M20 16l4-6h8l4 6h8a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4h8z" stroke="url(#camGrad)" stroke-width="2" fill="none"/>
+              <circle cx="28" cy="30" r="8" stroke="url(#camGrad)" stroke-width="2" fill="none"/>
+              <circle cx="28" cy="30" r="4" fill="url(#camGrad)" opacity="0.5"/>
+              <defs>
+                <linearGradient id="camGrad" x1="4" y1="10" x2="52" y2="46">
+                  <stop offset="0%" stop-color="#d4b886"/>
+                  <stop offset="100%" stop-color="#b59660"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <p class="drop-title">Fotoğraf & Video Yükle</p>
+        <p class="drop-subtitle">Sürükleyip bırakın veya seçmek için dokunun</p>
+        <p class="drop-meta">JPG, PNG, MP4, MOV · Fotoğraflar otomatik optimize edilir</p>
+
+        <div class="drop-zone-overlay" id="drop-overlay" aria-hidden="true">
+          <span class="drop-overlay-text">✨ Bırakın!</span>
+        </div>
+      </div>
+
+      <!-- Preview Grid -->
+      <div class="preview-section hidden" id="preview-section">
+        <div class="preview-header">
+          <span class="text-secondary text-sm" id="preview-count">0 dosya seçildi</span>
+          <button class="btn btn-sm btn-secondary" id="btn-add-more" type="button">+ Daha fazla ekle</button>
+        </div>
+        <div class="preview-grid" id="preview-grid" role="list"></div>
+      </div>
+
+      <!-- Upload Progress -->
+      <div class="upload-progress-wrap hidden" id="upload-progress-wrap">
+        <div class="upload-progress-info">
+          <span class="text-sm" id="progress-label">Yükleniyor…</span>
+          <span class="text-sm text-gold" id="progress-pct">0%</span>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-fill" id="progress-bar" style="width:0%" role="progressbar"
+               aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="upload-actions" id="upload-actions">
+        <button class="btn btn-primary btn-lg btn-full" id="btn-upload" type="button" disabled>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/>
+            <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+          </svg>
+          Yükle
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Success Screen ──────────────────────── -->
+  <section class="success-screen hidden" id="success-screen" aria-live="polite">
+    <div class="glass-card success-card">
+      <div class="success-animation" aria-hidden="true">
+        <div class="success-circle">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <path class="check-path" d="M12 24 l8 8 l16 -16" stroke="url(#checkGrad)" stroke-width="3"
+                  stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <defs>
+              <linearGradient id="checkGrad" x1="8" y1="16" x2="40" y2="36">
+                <stop offset="0%" stop-color="#d4b886"/><stop offset="100%" stop-color="#b59660"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="confetti-area" id="confetti-area"></div>
+      </div>
+
+      <h2 class="success-title font-serif">Teşekkürler! 🎉</h2>
+      <p class="success-msg">Fotoğraflarınız Burcu & Oğulcan'a iletildi.<br>Bu güzel anı bizimle paylaştığınız için çok mutluyuz!</p>
+      <p class="success-count text-gold" id="success-count"></p>
+
+      <button class="btn btn-secondary mt-3" id="btn-upload-more" type="button">
+        📸 Daha fazla yükle
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<!-- Toast container -->
+<div id="toast-container" aria-live="assertive" aria-atomic="true"></div>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/upload.js"></script>
+</body>
+</html>
