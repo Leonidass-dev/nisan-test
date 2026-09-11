@@ -1,4 +1,4 @@
-# 💍 Oğulcan & Burcu — Nişan Fotoğraf Sistemi
+#  Nişan Fotoğraf Sistemi
 
 QR kod bazlı nişan/düğün fotoğraf paylaşım sistemi.
 
@@ -45,7 +45,7 @@ QrNişanFoto/
 
 ### Adım 1: Firebase Projesi Oluşturun
 1. [Firebase Console](https://console.firebase.google.com) → "Proje ekle"
-2. Proje adı: `ogulcan-burcu-nisan`
+2. Proje adı: 
 3. Google Analytics: isteğe bağlı
 
 ### Adım 2: Storage Etkinleştirin
@@ -75,14 +75,6 @@ service firebase.storage {
 
 ### Adım 5: firebase-config.js'i Güncelleyin
 ```javascript
-const FIREBASE_CONFIG = {
-  apiKey:            "AIza...",
-  authDomain:        "ogulcan-burcu-nisan.firebaseapp.com",
-  projectId:         "ogulcan-burcu-nisan",
-  storageBucket:     "ogulcan-burcu-nisan.appspot.com",
-  messagingSenderId: "123456789",
-  appId:             "1:123456789:web:abc..."
-};
 
 const STORAGE_MODE = "firebase";  // "local" → "firebase" olarak değiştirin
 ```
